@@ -1,0 +1,16 @@
+/* Reset mínimo. O visual do cardápio vem na tarefa A1 (tema via CSS variables). */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}

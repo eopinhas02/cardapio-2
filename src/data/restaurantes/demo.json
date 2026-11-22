@@ -1,0 +1,152 @@
+{
+  "slug": "demo",
+  "nome": "Restaurante Demo",
+  "logo": "/img/demo/logo.png",
+  "modo": "interativo",
+  "urlExterna": null,
+  "cores": {
+    "primaria": "#c0392b",
+    "fundo": "#fffaf3",
+    "texto": "#2d2d2d"
+  },
+  "categorias": [
+    { "id": "entradas", "nome": "Entradas" },
+    { "id": "pratos", "nome": "Pratos principais" },
+    { "id": "bebidas", "nome": "Bebidas" },
+    { "id": "sobremesas", "nome": "Sobremesas" }
+  ],
+  "itens": [
+    {
+      "id": "bruschetta",
+      "categoriaId": "entradas",
+      "nome": "Bruschetta de tomate",
+      "descricao": "Pão italiano tostado com tomate, manjericão e azeite.",
+      "preco": 24.9,
+      "foto": "/img/demo/bruschetta.jpg",
+      "tags": ["vegetariano"],
+      "destaque": "mais-pedido",
+      "combinaCom": ["risoto-cogumelos", "limonada"]
+    },
+    {
+      "id": "bolinho-bacalhau",
+      "categoriaId": "entradas",
+      "nome": "Bolinho de bacalhau",
+      "descricao": "Seis unidades crocantes com maionese de limão.",
+      "preco": 32.9,
+      "foto": "/img/demo/bolinho-bacalhau.jpg",
+      "tags": [],
+      "destaque": null,
+      "combinaCom": ["chopp", "file-mignon"]
+    },
+    {
+      "id": "carpaccio",
+      "categoriaId": "entradas",
+      "nome": "Carpaccio",
+      "descricao": "Lâminas de carne com alcaparras, parmesão e rúcula.",
+      "preco": 38.5,
+      "foto": "/img/demo/carpaccio.jpg",
+      "tags": ["sem-gluten"],
+      "destaque": "chef",
+      "combinaCom": ["vinho-tinto", "salmao-grelhado"]
+    },
+    {
+      "id": "file-mignon",
+      "categoriaId": "pratos",
+      "nome": "Filé mignon ao molho madeira",
+      "descricao": "Medalhão de filé com arroz e batata rústica.",
+      "preco": 79.9,
+      "foto": "/img/demo/file-mignon.jpg",
+      "tags": [],
+      "destaque": "mais-pedido",
+      "combinaCom": ["vinho-tinto", "petit-gateau"]
+    },
+    {
+      "id": "risoto-cogumelos",
+      "categoriaId": "pratos",
+      "nome": "Risoto de cogumelos",
+      "descricao": "Arroz arbóreo com mix de cogumelos e parmesão.",
+      "preco": 64.9,
+      "foto": "/img/demo/risoto-cogumelos.jpg",
+      "tags": ["vegetariano", "sem-gluten"],
+      "destaque": "chef",
+      "combinaCom": ["bruschetta", "vinho-tinto"]
+    },
+    {
+      "id": "frango-picante",
+      "categoriaId": "pratos",
+      "nome": "Frango picante",
+      "descricao": "Sobrecoxa grelhada com molho de pimenta e legumes.",
+      "preco": 52.9,
+      "foto": "/img/demo/frango-picante.jpg",
+      "tags": ["apimentado", "sem-gluten"],
+      "destaque": null,
+      "combinaCom": ["limonada", "chopp"]
+    },
+    {
+      "id": "salmao-grelhado",
+      "categoriaId": "pratos",
+      "nome": "Salmão grelhado",
+      "descricao": "Salmão com purê de batata-doce e aspargos.",
+      "preco": 84.9,
+      "foto": "/img/demo/salmao-grelhado.jpg",
+      "tags": ["sem-gluten"],
+      "destaque": null,
+      "combinaCom": ["carpaccio", "limonada"]
+    },
+    {
+      "id": "limonada",
+      "categoriaId": "bebidas",
+      "nome": "Limonada suíça",
+      "descricao": "Limão batido com leite condensado e gelo.",
+      "preco": 14.9,
+      "foto": "/img/demo/limonada.jpg",
+      "tags": ["vegetariano", "sem-gluten"],
+      "destaque": "mais-pedido",
+      "combinaCom": ["frango-picante", "bruschetta"]
+    },
+    {
+      "id": "chopp",
+      "categoriaId": "bebidas",
+      "nome": "Chopp artesanal",
+      "descricao": "Pilsen da casa, 400 ml.",
+      "preco": 18.9,
+      "foto": "/img/demo/chopp.jpg",
+      "tags": ["vegetariano"],
+      "destaque": null,
+      "combinaCom": ["bolinho-bacalhau", "frango-picante"]
+    },
+    {
+      "id": "vinho-tinto",
+      "categoriaId": "bebidas",
+      "nome": "Taça de vinho tinto",
+      "descricao": "Cabernet Sauvignon chileno, 150 ml.",
+      "preco": 29.9,
+      "foto": "/img/demo/vinho-tinto.jpg",
+      "tags": ["vegetariano", "sem-gluten"],
+      "destaque": null,
+      "combinaCom": ["file-mignon", "risoto-cogumelos"]
+    },
+    {
+      "id": "petit-gateau",
+      "categoriaId": "sobremesas",
+      "nome": "Petit gâteau",
+      "descricao": "Bolinho de chocolate com recheio cremoso e sorvete de creme.",
+      "preco": 28.9,
+      "foto": "/img/demo/petit-gateau.jpg",
+      "tags": ["vegetariano"],
+      "destaque": "mais-pedido",
+      "combinaCom": ["vinho-tinto", "file-mignon"]
+    },
+    {
+      "id": "pudim",
+      "categoriaId": "sobremesas",
+      "nome": "Pudim de leite",
+      "descricao": "Receita da casa com calda de caramelo.",
+      "preco": 19.9,
+      "foto": "/img/demo/pudim.jpg",
+      "tags": ["vegetariano", "sem-gluten"],
+      "destaque": "chef",
+      "combinaCom": ["limonada", "salmao-grelhado"]
+    }
+  ]
+}
