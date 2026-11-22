@@ -1,11 +1,22 @@
-import { useParams } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useParams, useSearchParams } from 'react-router-dom'
 import { getRestaurante } from '../lib/restaurantes.js'
+import { carregarFontes, resolverEstilo, temaParaCssVars } from '../lib/tema.js'
+import AmostraTema from '../components/AmostraTema.jsx'
 
-// Placeholder: só mostra que o JSON do restaurante está sendo carregado.
-// O cardápio de verdade (A1–A5) e o redirecionamento do modo externo (B2) vêm depois.
+// O cardápio de verdade (A2–A5) e o redirecionamento do modo externo (B2) vêm depois.
 export default function Restaurante() {
   const { slug } = useParams()
+  const [searchParams] = useSearchParams()
   const restaurante = getRestaurante(slug)
+
+  // ?estilo=classico mostra o cardápio em outro estilo sem mudar o JSON
+  // (usado para apresentar os estilos aos clientes; funciona também em produção).
+  const estilo = resolverEstilo(searchParams.get('estilo') ?? restaurante?.estilo)
+
+  useEffect(() => {
+    carregarFontes(estilo)
+  }, [estilo])
 
   if (!restaurante) {
     // 404 amigável fica para a tarefa B1
@@ -17,12 +28,8 @@ export default function Restaurante() {
   }
 
   return (
-    <main>
-      <h1>{restaurante.nome}</h1>
-      <p>Modo: {restaurante.modo}</p>
-      <p>
-        {restaurante.categorias.length} categorias, {restaurante.itens.length} itens
-      </p>
-    </main>
+    <div className="tema" style={temaParaCssVars(restaurante, estilo)}>
+      <AmostraTema restaurante={restaurante} estilo={estilo} />
+    </div>
   )
 }

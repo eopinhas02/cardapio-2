@@ -1,4 +1,4 @@
-/* Reset mínimo. O visual do cardápio vem na tarefa A1 (tema via CSS variables). */
+/* Reset mínimo */
 *,
 *::before,
 *::after {
@@ -13,4 +13,46 @@ body {
 img {
   max-width: 100%;
   display: block;
+}
+
+/*
+ * Tema do cardápio.
+ * As variáveis de estilo e as 4 cores vêm de src/lib/tema.js (style inline no elemento .tema).
+ * Componentes A2–A5 só usam var(--...). Lista completa das variáveis em src/lib/tema.js.
+ */
+.tema {
+  /* Cores derivadas: calculadas aqui (e não no :root) para usar as cores do restaurante */
+  --cor-superficie: color-mix(in srgb, var(--cor-texto) 5%, var(--cor-fundo));
+  --cor-texto-suave: color-mix(in srgb, var(--cor-texto) 72%, var(--cor-fundo));
+  --cor-borda: color-mix(in srgb, var(--cor-texto) 15%, var(--cor-fundo));
+
+  min-height: 100dvh;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-base);
+  line-height: var(--altura-linha);
+  -webkit-text-size-adjust: 100%;
+}
+
+.tema :is(h1, h2, h3) {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-weight: var(--peso-titulo);
+  letter-spacing: var(--tracking-titulo);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+/* Alvos de toque confortáveis para o dedo */
+.tema :is(button, .botao) {
+  min-height: var(--altura-toque);
+  min-width: var(--altura-toque);
+  font: inherit;
+  cursor: pointer;
+}
+
+.tema :focus-visible {
+  outline: 3px solid var(--cor-primaria);
+  outline-offset: 2px;
 }

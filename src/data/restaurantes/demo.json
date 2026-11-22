@@ -4,10 +4,12 @@
   "logo": "/img/demo/logo.png",
   "modo": "interativo",
   "urlExterna": null,
+  "estilo": "moderno",
   "cores": {
-    "primaria": "#c0392b",
-    "fundo": "#fffaf3",
-    "texto": "#2d2d2d"
+    "primaria": "#1f6f50",
+    "sobrePrimaria": "#ffffff",
+    "fundo": "#ffffff",
+    "texto": "#1c2321"
   },
   "categorias": [
     { "id": "entradas", "nome": "Entradas" },

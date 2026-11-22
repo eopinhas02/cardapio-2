@@ -28,6 +28,7 @@ Não há testes automatizados configurados ainda.
   - `"interativo"`: abre o nosso cardápio, com tema vindo de `cores`.
 - O formato completo do JSON está documentado no JSDoc de `src/lib/restaurantes.js` e em `ROADMAP.md`. `src/data/restaurantes/demo.json` é o exemplo de referência. Ao mudar o formato, atualizar os três lugares.
 - Convenções do JSON: `preco` é número em reais (formatação só na UI); `combinaCom` e `categoriaId` referenciam ids existentes; `destaque` é `"mais-pedido"`, `"chef"` ou `null`.
+- **Tema (A1):** `src/lib/tema.js` transforma `estilo` (preset: `moderno`, `classico`, `despojado`) e `cores` em CSS variables, aplicadas no elemento `.tema` em `Restaurante.jsx`; cores derivadas (`--cor-superficie`, `--cor-texto-suave`, `--cor-borda`) são calculadas em `.tema` no `src/styles/global.css`. Componentes só usam `var(--...)`, nunca leem cores/estilo do JSON. `?estilo=<nome>` na URL sobrescreve o estilo (usado para mostrar estilos a clientes, inclusive em produção). Só as fontes do estilo em uso são carregadas do Google Fonts.
 - Rotas definidas em `src/App.jsx` (`BrowserRouter` em `src/main.jsx`). Por ser SPA, o deploy precisa de rewrite de todas as rotas para `index.html` (tarefa B5, `vercel.json`).
 
 ## Divisão de tarefas e branches

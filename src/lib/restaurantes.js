@@ -7,7 +7,13 @@
  *   logo: string,                       // URL ou caminho da imagem
  *   modo: "externo" | "interativo",     // externo = redireciona; interativo = nosso cardápio
  *   urlExterna: string | null,          // obrigatória só no modo "externo"
- *   cores: { primaria: string, fundo: string, texto: string },
+ *   estilo: "moderno" | "classico" | "despojado",  // opcional; padrão "moderno" (presets em lib/tema.js)
+ *   cores: {
+ *     primaria: string,
+ *     sobrePrimaria?: string,           // opcional; texto em cima da cor primária, padrão "#ffffff"
+ *     fundo: string,
+ *     texto: string
+ *   },
  *   categorias: [{ id: string, nome: string }],
  *   itens: [{
  *     id: string,

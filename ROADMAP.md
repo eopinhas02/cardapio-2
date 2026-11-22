@@ -12,7 +12,8 @@ Toda placa aponta para `/r/:slug`. Cada restaurante é um JSON em `src/data/rest
 | `logo` | string | URL ou caminho da imagem |
 | `modo` | `"externo"` \| `"interativo"` | Externo redireciona para `urlExterna`; interativo abre nosso cardápio |
 | `urlExterna` | string \| null | Obrigatória só no modo externo |
-| `cores` | `{ primaria, fundo, texto }` | Cores do tema (A1) |
+| `estilo` | `"moderno"` \| `"classico"` \| `"despojado"` | Opcional, padrão `"moderno"`. Preset de tipografia, bordas, sombras, espaçamento e cards (A1, em `src/lib/tema.js`) |
+| `cores` | `{ primaria, sobrePrimaria?, fundo, texto }` | Cores do tema (A1). `sobrePrimaria` é opcional: texto em cima da primária, padrão `#ffffff` |
 | `categorias` | `[{ id, nome }]` | |
 | `itens` | lista (abaixo) | |
 
@@ -33,7 +34,7 @@ Exemplo completo: `src/data/restaurantes/demo.json`. Para ler um restaurante: `g
 
 ## Trilha A — Cardápio / visual
 
-- [ ] **A1** Tema por CSS variables vindas do JSON (`cores`).
+- [x] **A1** Tema por CSS variables vindas do JSON (`estilo` e `cores`).
 - [ ] **A2** Header + navegação de categorias sticky.
 - [ ] **A3** Cards dos itens com foto, preço e selos de destaque.
 - [ ] **A4** Detalhe do item em modal com "Combina com".

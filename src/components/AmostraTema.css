@@ -1,0 +1,108 @@
+/* TEMPORÁRIO (A1): estilos da amostra do tema. Só usa variáveis de .tema. */
+
+.amostra {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: calc(var(--espaco) * 1.5) var(--espaco);
+  display: grid;
+  gap: calc(var(--espaco) * 1.5);
+}
+
+.amostra h1 {
+  font-size: 2rem;
+}
+
+.amostra-estilos {
+  display: flex;
+  gap: calc(var(--espaco) / 2);
+  flex-wrap: wrap;
+}
+
+.amostra-estilo {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 1em;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-botao);
+  color: var(--cor-texto);
+  text-decoration: none;
+}
+
+.amostra-estilo[aria-current] {
+  border-color: var(--cor-primaria);
+  background: var(--cor-primaria);
+  color: var(--cor-sobre-primaria);
+}
+
+.amostra-card {
+  display: flex;
+  flex-direction: var(--card-direcao);
+  gap: var(--espaco);
+  padding: var(--espaco-card);
+  background: var(--card-fundo);
+  border: var(--borda-card);
+  border-bottom: var(--card-separador);
+  border-radius: var(--raio-card);
+  box-shadow: var(--sombra-card);
+}
+
+.amostra-card-texto {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: calc(var(--espaco) / 2);
+  align-content: start;
+}
+
+.amostra-card-linha {
+  display: flex;
+  align-items: baseline;
+  gap: calc(var(--espaco) / 2);
+}
+
+.amostra-card-linha h2 {
+  font-size: 1.2rem;
+}
+
+/* Linha pontilhada entre nome e preço (só aparece no estilo classico) */
+.amostra-card-guia {
+  flex: 1;
+  border-bottom: var(--card-guia-preco);
+}
+
+.amostra-card-preco {
+  margin-left: auto;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.amostra-card p {
+  margin: 0;
+  color: var(--cor-texto-suave);
+}
+
+.amostra-selo {
+  justify-self: start;
+  padding: 0.15em 0.7em;
+  border-radius: var(--raio-selo);
+  background: color-mix(in srgb, var(--cor-primaria) 14%, var(--cor-fundo));
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.amostra-card-foto {
+  flex-shrink: 0;
+  width: var(--card-foto-largura);
+  aspect-ratio: var(--card-foto-proporcao);
+  border-radius: calc(var(--raio-card) * 0.6);
+  background: var(--cor-borda);
+}
+
+.amostra-botao {
+  padding: 0 1.5em;
+  border: none;
+  border-radius: var(--raio-botao);
+  background: var(--cor-primaria);
+  color: var(--cor-sobre-primaria);
+  font-weight: 700;
+}
