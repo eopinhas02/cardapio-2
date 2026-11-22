@@ -1,0 +1,67 @@
+/* Navegação de categorias (A2). Só usa variáveis do tema (--nav-*). */
+
+.nav-categorias {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--nav-fundo);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: var(--nav-separador);
+}
+
+.nav-categorias-lista {
+  max-width: var(--largura-conteudo);
+  margin: 0 auto;
+  padding: 10px var(--espaco);
+  list-style: none;
+  display: flex;
+  gap: var(--nav-gap);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  /* esmaece as pontas para indicar que dá para rolar para o lado */
+  mask-image: linear-gradient(to right, transparent, #000 12px, #000 calc(100% - 24px), transparent);
+}
+
+.nav-categorias-lista::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-categorias-item {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  min-height: var(--nav-item-altura);
+  padding: var(--nav-item-padding);
+  border: var(--nav-item-borda);
+  border-radius: var(--nav-item-raio);
+  background: var(--nav-item-fundo);
+  color: var(--nav-item-texto);
+  font-family: var(--nav-fonte);
+  font-weight: var(--nav-peso);
+  font-size: 0.94rem;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    box-shadow 0.2s;
+}
+
+.nav-categorias-item[aria-current] {
+  background: var(--nav-item-ativo-fundo);
+  color: var(--nav-item-ativo-texto);
+  box-shadow: var(--nav-item-ativo-sombra);
+}
+
+/* foco por dentro do item: a lista corta o que passa da borda */
+.nav-categorias-item:focus-visible {
+  outline-offset: -3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-categorias-item {
+    transition: none;
+  }
+}

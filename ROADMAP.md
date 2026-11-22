@@ -35,7 +35,7 @@ Exemplo completo: `src/data/restaurantes/demo.json`. Para ler um restaurante: `g
 ## Trilha A — Cardápio / visual
 
 - [x] **A1** Tema por CSS variables vindas do JSON (`estilo` e `cores`).
-- [ ] **A2** Header + navegação de categorias sticky.
+- [x] **A2** Header + navegação de categorias sticky.
 - [ ] **A3** Cards dos itens com foto, preço e selos de destaque.
 - [ ] **A4** Detalhe do item em modal com "Combina com".
 - [ ] **A5** Carrinho em lista com total e upsell.

@@ -156,14 +156,16 @@ const arquivos = import.meta.glob('../data/restaurantes/*.json', {
 })
 
 // Mapa slug -> restaurante.
+// Map (e não objeto comum) porque o slug vem da URL: com objeto, /r/toString ou /r/constructor
+// devolveriam funções herdadas do Object.prototype no lugar de "não encontrado".
 // JSONs inválidos (ou com slug repetido) ficam de fora e geram erro no console,
 // com o nome do arquivo, para quem estiver editando achar o problema rápido.
-const restaurantesPorSlug = {}
+const restaurantesPorSlug = new Map()
 for (const [caminho, restaurante] of Object.entries(arquivos)) {
   const arquivo = caminho.split('/').pop()
   const erros = validarRestaurante(restaurante)
 
-  if (erros.length === 0 && restaurantesPorSlug[restaurante.slug]) {
+  if (erros.length === 0 && restaurantesPorSlug.has(restaurante.slug)) {
     erros.push(`slug "${restaurante.slug}" já é usado por outro arquivo`)
   }
 
@@ -174,7 +176,7 @@ for (const [caminho, restaurante] of Object.entries(arquivos)) {
     continue
   }
 
-  restaurantesPorSlug[restaurante.slug] = restaurante
+  restaurantesPorSlug.set(restaurante.slug, restaurante)
 }
 
 /**
@@ -182,5 +184,5 @@ for (const [caminho, restaurante] of Object.entries(arquivos)) {
  * (ou se o JSON dele for inválido — ver validarRestaurante).
  */
 export function getRestaurante(slug) {
-  return restaurantesPorSlug[slug] ?? null
+  return restaurantesPorSlug.get(slug) ?? null
 }

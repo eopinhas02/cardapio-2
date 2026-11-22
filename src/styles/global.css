@@ -26,6 +26,13 @@ img {
   --cor-texto-suave: color-mix(in srgb, var(--cor-texto) 72%, var(--cor-fundo));
   --cor-borda: color-mix(in srgb, var(--cor-texto) 15%, var(--cor-fundo));
 
+  /* Largura máxima do conteúdo (no celular ocupa a tela toda) */
+  --largura-conteudo: 40rem;
+
+  /* Altura da barra de categorias (item + padding de 10px em cima e embaixo).
+     Usada no scroll-margin das seções para o título não ficar escondido atrás dela. */
+  --altura-nav: calc(var(--nav-item-altura) + 20px);
+
   min-height: 100dvh;
   background: var(--cor-fundo);
   color: var(--cor-texto);
@@ -55,4 +62,11 @@ img {
 .tema :focus-visible {
   outline: 3px solid var(--cor-primaria);
   outline-offset: 2px;
+}
+
+/* Coluna do cardápio (seções de categorias) */
+.cardapio {
+  max-width: var(--largura-conteudo);
+  margin: 0 auto;
+  padding: 0 var(--espaco) calc(var(--espaco) * 4);
 }

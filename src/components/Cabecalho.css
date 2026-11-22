@@ -1,0 +1,46 @@
+/* Cabeçalho (A2). Só usa variáveis do tema; cada estilo muda o jeito via --cabecalho-* e --logo-*. */
+
+.cabecalho {
+  background: var(--cabecalho-fundo);
+  color: var(--cabecalho-texto);
+  border-bottom: var(--cabecalho-separador);
+  border-radius: var(--cabecalho-raio);
+  padding: var(--cabecalho-padding);
+}
+
+.cabecalho-conteudo {
+  max-width: var(--largura-conteudo);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: var(--cabecalho-direcao);
+  align-items: center;
+  gap: calc(var(--espaco) * 0.875);
+  text-align: var(--cabecalho-texto-alinhar);
+}
+
+.cabecalho-logo {
+  flex: none;
+  width: var(--logo-tamanho);
+  height: var(--logo-tamanho);
+  border-radius: var(--logo-raio);
+  border: var(--logo-borda);
+  box-shadow: var(--logo-sombra);
+  object-fit: cover;
+}
+
+.cabecalho-monograma {
+  display: grid;
+  place-items: center;
+  background: var(--logo-fundo);
+  color: var(--logo-texto);
+  font-family: var(--fonte-titulo);
+  font-weight: var(--peso-titulo);
+  font-size: calc(var(--logo-tamanho) * 0.46);
+  line-height: 1;
+}
+
+.cabecalho-nome {
+  font-size: var(--cabecalho-nome-tamanho);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
