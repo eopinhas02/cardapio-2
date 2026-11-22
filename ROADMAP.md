@@ -42,7 +42,7 @@ Exemplo completo: `src/data/restaurantes/demo.json`. Para ler um restaurante: `g
 
 ## Trilha B — Infra
 
-- [ ] **B1** Validação do JSON + 404 amigável para slug inexistente.
+- [x] **B1** Validação do JSON + 404 amigável para slug inexistente.
 - [ ] **B2** Redirecionamento do modo externo.
 - [ ] **B3** Segundo restaurante de exemplo em modo externo.
 - [ ] **B4** Página `/admin/qr` que gera e baixa PNG do QR de cada restaurante.

@@ -6,6 +6,7 @@ import Cabecalho from '../components/Cabecalho.jsx'
 import NavCategorias from '../components/NavCategorias.jsx'
 import SecaoCategoria from '../components/SecaoCategoria.jsx'
 import SeletorEstilo from '../components/SeletorEstilo.jsx'
+import NaoEncontrado from './NaoEncontrado.jsx'
 
 // Cards, modal e carrinho (A3–A5) e o redirecionamento do modo externo (B2) vêm depois.
 export default function Restaurante() {
@@ -23,13 +24,9 @@ export default function Restaurante() {
     carregarFontes(estilo)
   }, [estilo])
 
+  // Slug inexistente ou JSON inválido (ver lib/restaurantes.js): 404 amigável (B1)
   if (!restaurante) {
-    // 404 amigável fica para a tarefa B1
-    return (
-      <main>
-        <p>Restaurante "{slug}" não encontrado (placeholder).</p>
-      </main>
-    )
+    return <NaoEncontrado slug={slug} />
   }
 
   // Só entram categorias que têm itens (na navegação e nas seções)
