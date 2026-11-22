@@ -29,6 +29,8 @@
  * }
  */
 
+import { ESTILOS } from './tema.js'
+
 const MODOS = ['externo', 'interativo']
 const TAGS = ['vegetariano', 'apimentado', 'sem-gluten']
 const DESTAQUES = ['mais-pedido', 'chef', null]
@@ -64,6 +66,17 @@ export function validarRestaurante(r) {
     for (const cor of ['primaria', 'fundo', 'texto']) {
       if (!ehTexto(r.cores[cor])) erros.push(`"cores.${cor}" deve ser um texto não vazio`)
     }
+    // Opcional: se vier, tem que ser texto
+    if (r.cores.sobrePrimaria !== undefined && !ehTexto(r.cores.sobrePrimaria)) {
+      erros.push('"cores.sobrePrimaria" é opcional, mas se vier deve ser um texto não vazio')
+    }
+  }
+
+  // Opcional: sem "estilo" o tema usa o padrão. Se vier, tem que ser um preset de lib/tema.js
+  // (Object.hasOwn evita aceitar nomes herdados do objeto, como "toString").
+  if (r.estilo !== undefined && !(typeof r.estilo === 'string' && Object.hasOwn(ESTILOS, r.estilo))) {
+    const nomes = Object.keys(ESTILOS).map((n) => `"${n}"`).join(', ')
+    erros.push(`"estilo" deve ser ${nomes} (veio ${JSON.stringify(r.estilo)})`)
   }
 
   // Categorias
