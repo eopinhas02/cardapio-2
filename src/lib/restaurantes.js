@@ -36,10 +36,12 @@ const arquivos = import.meta.glob('../data/restaurantes/*.json', {
   import: 'default',
 })
 
-// Mapa slug -> restaurante
-const restaurantesPorSlug = {}
+// Mapa slug -> restaurante.
+// Map (e não objeto comum) porque o slug vem da URL: com objeto, /r/toString ou /r/constructor
+// devolveriam funções herdadas do Object.prototype no lugar de "não encontrado".
+const restaurantesPorSlug = new Map()
 for (const restaurante of Object.values(arquivos)) {
-  restaurantesPorSlug[restaurante.slug] = restaurante
+  restaurantesPorSlug.set(restaurante.slug, restaurante)
 }
 
 /**
@@ -47,5 +49,5 @@ for (const restaurante of Object.values(arquivos)) {
  * (A validação do formato fica para a tarefa B1.)
  */
 export function getRestaurante(slug) {
-  return restaurantesPorSlug[slug] ?? null
+  return restaurantesPorSlug.get(slug) ?? null
 }

@@ -1,0 +1,33 @@
+/* Seletor de estilo do modo demo (?demo=1): pequeno, fixo no canto inferior direito. */
+
+.seletor-estilo {
+  position: fixed;
+  right: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  z-index: 20;
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 999px;
+  background: var(--cor-fundo);
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--cor-texto) 18%, transparent);
+  font-family: system-ui, sans-serif;
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.seletor-estilo-opcao {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 10px;
+  border-radius: 999px;
+  color: var(--cor-texto-suave);
+  text-decoration: none;
+}
+
+.seletor-estilo-opcao[aria-current] {
+  background: var(--cor-primaria);
+  color: var(--cor-sobre-primaria);
+}

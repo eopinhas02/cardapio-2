@@ -1,0 +1,26 @@
+/* PROVISÓRIO (A2): sai/muda com os cards da A3. */
+
+.secao-categoria {
+  /* espaço para o título não ficar atrás da barra de categorias */
+  scroll-margin-top: var(--altura-nav);
+  padding: calc(var(--espaco) * 1.75) 0 var(--espaco);
+}
+
+.secao-categoria h2 {
+  font-size: 1.5rem;
+  margin-bottom: var(--espaco);
+}
+
+.secao-categoria-itens {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.secao-categoria-itens li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--espaco);
+  padding: var(--espaco) 0;
+  border-bottom: 1px solid var(--cor-borda);
+}
