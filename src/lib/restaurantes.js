@@ -6,7 +6,7 @@
  *   nome: string,
  *   logo: string,                       // URL ou caminho da imagem
  *   modo: "externo" | "interativo",     // externo = redireciona; interativo = nosso cardápio
- *   urlExterna: string | null,          // obrigatória só no modo "externo"
+ *   urlExterna: string | null,          // obrigatória só no modo "externo"; http:// ou https://
  *   estilo: "moderno" | "classico" | "despojado",  // opcional; padrão "moderno" (presets em lib/tema.js)
  *   cores: {
  *     primaria: string,
@@ -37,6 +37,17 @@ const DESTAQUES = ['mais-pedido', 'chef', null]
 
 const ehTexto = (v) => typeof v === 'string' && v.trim() !== ''
 
+// Só aceita endereço web completo. Bloqueia "javascript:", "data:" etc., porque
+// no modo externo o cliente é mandado direto para essa URL (B2).
+function ehUrlWeb(v) {
+  try {
+    const url = new URL(v)
+    return url.protocol === 'https:' || url.protocol === 'http:'
+  } catch {
+    return false
+  }
+}
+
 /**
  * Confere se o JSON de um restaurante segue o formato acima.
  * Retorna uma lista de mensagens de erro (vazia = tudo certo).
@@ -56,8 +67,14 @@ export function validarRestaurante(r) {
   if (!MODOS.includes(r.modo)) {
     erros.push(`"modo" deve ser "externo" ou "interativo" (veio ${JSON.stringify(r.modo)})`)
   }
-  if (r.modo === 'externo' && !ehTexto(r.urlExterna)) {
-    erros.push('"urlExterna" é obrigatória no modo "externo"')
+  if (r.modo === 'externo') {
+    if (!ehTexto(r.urlExterna)) {
+      erros.push('"urlExterna" é obrigatória no modo "externo"')
+    } else if (!ehUrlWeb(r.urlExterna)) {
+      erros.push(
+        `"urlExterna" deve ser um endereço http:// ou https:// (veio ${JSON.stringify(r.urlExterna)})`,
+      )
+    }
   }
 
   if (!r.cores || typeof r.cores !== 'object') {

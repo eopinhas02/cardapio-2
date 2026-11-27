@@ -11,7 +11,7 @@ Toda placa aponta para `/r/:slug`. Cada restaurante é um JSON em `src/data/rest
 | `nome` | string | |
 | `logo` | string | URL ou caminho da imagem |
 | `modo` | `"externo"` \| `"interativo"` | Externo redireciona para `urlExterna`; interativo abre nosso cardápio |
-| `urlExterna` | string \| null | Obrigatória só no modo externo |
+| `urlExterna` | string \| null | Obrigatória só no modo externo; endereço `http://` ou `https://` completo |
 | `estilo` | `"moderno"` \| `"classico"` \| `"despojado"` | Opcional, padrão `"moderno"`. Preset de tipografia, bordas, sombras, espaçamento e cards (A1, em `src/lib/tema.js`) |
 | `cores` | `{ primaria, sobrePrimaria?, fundo, texto }` | Cores do tema (A1). `sobrePrimaria` é opcional: texto em cima da primária, padrão `#ffffff` |
 | `categorias` | `[{ id, nome }]` | |
@@ -43,7 +43,7 @@ Exemplo completo: `src/data/restaurantes/demo.json`. Para ler um restaurante: `g
 ## Trilha B — Infra
 
 - [x] **B1** Validação do JSON + 404 amigável para slug inexistente.
-- [ ] **B2** Redirecionamento do modo externo.
+- [x] **B2** Redirecionamento do modo externo.
 - [ ] **B3** Segundo restaurante de exemplo em modo externo.
 - [ ] **B4** Página `/admin/qr` que gera e baixa PNG do QR de cada restaurante.
 - [ ] **B5** Deploy na Vercel com `vercel.json` para as rotas.

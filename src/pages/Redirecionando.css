@@ -1,0 +1,46 @@
+/* Tela do modo externo (B2). Mesmo visual neutro do 404 (NaoEncontrado.css). */
+.redirecionando {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+  background: #f6f6f4;
+  color: #1c2321;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.redirecionando__caixa {
+  width: 100%;
+  max-width: 24rem;
+}
+
+.redirecionando__icone {
+  margin: 0 0 8px;
+  font-size: 3rem;
+}
+
+.redirecionando h1 {
+  margin: 0 0 12px;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.redirecionando p {
+  margin: 0 0 8px;
+  color: #4a524f;
+}
+
+/* Alvo de toque confortável (mín. 44px) */
+.redirecionando__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 16px;
+  padding: 0 20px;
+  border-radius: 999px;
+  background: #1c2321;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
