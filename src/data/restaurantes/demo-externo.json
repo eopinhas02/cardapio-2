@@ -1,0 +1,14 @@
+{
+  "slug": "demo-externo",
+  "nome": "Restaurante Demo Externo",
+  "logo": "/img/demo-externo/logo.png",
+  "modo": "externo",
+  "urlExterna": "https://example.com",
+  "cores": {
+    "primaria": "#8a3b12",
+    "fundo": "#ffffff",
+    "texto": "#1c2321"
+  },
+  "categorias": [],
+  "itens": []
+}

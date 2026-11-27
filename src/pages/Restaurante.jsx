@@ -6,8 +6,10 @@ import Cabecalho from '../components/Cabecalho.jsx'
 import NavCategorias from '../components/NavCategorias.jsx'
 import SecaoCategoria from '../components/SecaoCategoria.jsx'
 import SeletorEstilo from '../components/SeletorEstilo.jsx'
+import NaoEncontrado from './NaoEncontrado.jsx'
+import Redirecionando from './Redirecionando.jsx'
 
-// Cards, modal e carrinho (A3–A5) e o redirecionamento do modo externo (B2) vêm depois.
+// Cards, modal e carrinho (A3–A5) vêm depois.
 export default function Restaurante() {
   const { slug } = useParams()
   const [searchParams] = useSearchParams()
@@ -19,17 +21,27 @@ export default function Restaurante() {
   // ?demo=1 mostra o seletor de estilo no canto da tela (para apresentar a clientes)
   const modoDemo = searchParams.get('demo') === '1'
 
-  useEffect(() => {
-    carregarFontes(estilo)
-  }, [estilo])
+  // Modo externo (B2): o restaurante tem cardápio próprio, só mandamos o cliente para lá.
+  // A URL já foi validada como http/https em lib/restaurantes.js.
+  const urlExterna = restaurante?.modo === 'externo' ? restaurante.urlExterna : null
 
+  useEffect(() => {
+    // replace (e não href) para o "voltar" do celular não cair de novo aqui e redirecionar em loop
+    if (urlExterna) window.location.replace(urlExterna)
+  }, [urlExterna])
+
+  useEffect(() => {
+    // No modo externo o nosso cardápio não aparece, então não precisa baixar fontes
+    if (!urlExterna) carregarFontes(estilo)
+  }, [estilo, urlExterna])
+
+  // Slug inexistente ou JSON inválido (ver lib/restaurantes.js): 404 amigável (B1)
   if (!restaurante) {
-    // 404 amigável fica para a tarefa B1
-    return (
-      <main>
-        <p>Restaurante "{slug}" não encontrado (placeholder).</p>
-      </main>
-    )
+    return <NaoEncontrado slug={slug} />
+  }
+
+  if (urlExterna) {
+    return <Redirecionando nome={restaurante.nome} url={urlExterna} />
   }
 
   // Só entram categorias que têm itens (na navegação e nas seções)

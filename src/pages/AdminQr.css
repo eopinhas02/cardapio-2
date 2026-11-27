@@ -1,0 +1,74 @@
+/* Página interna /admin/qr (B4). Visual neutro, sem tema de restaurante. Mobile-first. */
+.admin-qr {
+  min-height: 100dvh;
+  padding: 24px 16px;
+  background: #f6f6f4;
+  color: #1c2321;
+  line-height: 1.5;
+}
+
+.admin-qr h1 {
+  margin: 0 0 16px;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.admin-qr__aviso {
+  margin: 0 0 16px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #fff4d6;
+  color: #5c4300;
+}
+
+/* Uma coluna no celular; mais colunas quando a tela permite */
+.admin-qr__lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.admin-qr__cartao {
+  padding: 16px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+  text-align: center;
+}
+
+.admin-qr__cartao h2 {
+  margin: 0 0 4px;
+  font-size: 1.125rem;
+}
+
+.admin-qr__url,
+.admin-qr__modo {
+  margin: 0 0 8px;
+  color: #4a524f;
+  font-size: 0.875rem;
+  overflow-wrap: anywhere; /* URL longa não estoura a largura no celular */
+}
+
+.admin-qr__imagem {
+  display: block;
+  width: 100%;
+  max-width: 16rem;
+  height: auto;
+  margin: 8px auto 12px;
+}
+
+/* Alvo de toque confortável (mín. 44px) */
+.admin-qr__baixar {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 999px;
+  background: #1c2321;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
