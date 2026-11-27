@@ -45,7 +45,7 @@ Exemplo completo: `src/data/restaurantes/demo.json`. Para ler um restaurante: `g
 - [x] **B1** Validação do JSON + 404 amigável para slug inexistente.
 - [x] **B2** Redirecionamento do modo externo.
 - [x] **B3** Segundo restaurante de exemplo em modo externo.
-- [ ] **B4** Página `/admin/qr` que gera e baixa PNG do QR de cada restaurante.
+- [x] **B4** Página `/admin/qr` que gera e baixa PNG do QR de cada restaurante.
 - [ ] **B5** Deploy na Vercel com `vercel.json` para as rotas.
 
 ## Futuro

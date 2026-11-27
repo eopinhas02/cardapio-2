@@ -203,3 +203,11 @@ for (const [caminho, restaurante] of Object.entries(arquivos)) {
 export function getRestaurante(slug) {
   return restaurantesPorSlug.get(slug) ?? null
 }
+
+/**
+ * Lista todos os restaurantes válidos, em ordem alfabética de nome
+ * (usado na página /admin/qr).
+ */
+export function listarRestaurantes() {
+  return [...restaurantesPorSlug.values()].sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
+}
